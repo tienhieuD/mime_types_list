@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="mime_types_list_config_setting_form_inherit" model="ir.ui.view">
+            <field name="name">mime.types.list.config.setting.form.inherit</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="base_setup.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@name='integration']" position="after">
+                    <h2>Mimetypes List</h2>
+                    <div class="row mt16 o_settings_container">
+                        <div class="col-xs-12 col-md-12 o_setting_box">
+                            <div class="o_setting_right_pane">
+                                <label string="Available mimetypes"/>
+                                <div class="text-muted">
+                                    Available mimetypes for attachments.
+                                </div>
+                                <div class="content-group">
+                                    <div class="mt16 row">
+                                        <label for="mimetype_ids" string="Types"
+                                               class="col-xs-3 col-md-3 o_light_label"/>
+                                        <field name="mimetype_ids" class="oe_inline" widget="many2many_tags"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

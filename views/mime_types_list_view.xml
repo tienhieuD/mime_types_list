@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="mime_types_list_form_view" model="ir.ui.view">
+            <field name="name">Mime Types List</field>
+            <field name="model">mime.types.list</field>
+            <field name="arch" type="xml">
+                <form string="Mime Types List">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="mimetype"/>
+                            <field name="extension"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="mime_types_list_tree_view" model="ir.ui.view">
+            <field name="name">Mime Types List</field>
+            <field name="model">mime.types.list</field>
+            <field name="arch" type="xml">
+                <tree string="Mime Types List">
+                    <field name="name"/>
+                    <field name="mimetype"/>
+                    <field name="extension"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="mime_types_list_act_window" model="ir.actions.act_window">
+            <field name="name">Mime Types List</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">mime.types.list</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="mime_types_list_menuitem"
+                  name="Mime Types List"
+                  parent="base.menu_custom"
+                  action="mime_types_list_act_window"
+                  sequence="1000"/>
+
+    </data>
+</odoo>
