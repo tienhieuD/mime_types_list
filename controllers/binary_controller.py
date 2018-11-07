@@ -8,9 +8,9 @@ from odoo.addons.web.controllers.main import Binary, serialize_exception
 
 class Binary(Binary):
     def check_accepted_file(self, file):
-        available_mimetype = request.env['ir.config_parameter'].get_param('mime_types_list.mimetype_ids')
+        available_mimetype = request.env['ir.config_parameter'].sudo().get_param('mime_types_list.mimetype_ids')
         if available_mimetype:
-            mimetype_ids = request.env['mime.types.list'].browse([int(mid) for mid in available_mimetype.split(',')])
+            mimetype_ids = request.env['mime.types.list'].sudo().browse([int(mid) for mid in available_mimetype.split(',')])
             mimetype_accepted = mimetype_ids.mapped(lambda r: (r.mimetype, r.extension))
             file_mimetype = (file.mimetype, '.%s' % file.filename.split('.')[-1])
             return file_mimetype in mimetype_accepted
